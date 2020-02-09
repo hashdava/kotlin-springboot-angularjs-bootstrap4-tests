@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>AngularJS + Kotlin SpringBoot + Bootstrap 4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="/js/angular.app.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container" ng-app="app">
+    <h6 style="color:blue; margin-top:10px">AngularJS + Kotlin SpringBoot + Bootstrap 4</h6>
+    <div class="row">
+        <div class="col-sm-4">
+            <div ng-controller="postController">
+                <form name = "customerForm" ng-submit="submitForm()">
+                    <div class="form-group">
+                        <label for="firstName">FirstName:</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Enter FirstName" ng-model="firstName" />
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">LastName:</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Enter LastName" ng-model="lastName" />
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" class="form-control" id="age" placeholder="Enter Age" ng-model="age">
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary btn-sm">Post Customer</button>
+                </form>
+
+                <div style="margin-top: 5px; margin-bottom: 5px">
+                    <p>{{ returnMessage }}</p>
+                </div>
+            </div>
+            <div style="margin-bottom: 5px; margin-bottom: 5px" ng-controller="getController">
+                <button id="btn-id" type="button" class="btn btn-outline-info btn-sm" ng-click="getFunction()">Get Customers</button>
+                <ul style="margin-top: 5px">
+                    <li ng-repeat="customer in customers">{{ "Customer Full Name: " + customer.firstName + " " + customer.lastName + ", age = " + customer.age }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
